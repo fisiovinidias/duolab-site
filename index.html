@@ -178,7 +178,7 @@ function draw(){
 (function(){
  const tabs=document.getElementById('tabs');
  function show(t){['ag','qs','sv','eq','un'].forEach(k=>{document.getElementById('t_'+k).hidden=k!==t});[...tabs.children].forEach(b=>b.classList.toggle('on',b.dataset.tab===t));window.scrollTo(0,0)}
- document.addEventListener('click',e=>{const b=e.target.closest('[data-tab]');if(b)show(b.dataset.tab)});
+ document.addEventListener('click',e=>{const b=e.target.closest('[data-tab]');if(b){show(b.dataset.tab);if(b.classList.contains('q1')){const t=document.getElementById('t_ag');if(t)t.scrollIntoView({behavior:'smooth',block:'start'})}}});
  try{if(/[?&]eq=1/.test(location.search))document.getElementById('tbeq').hidden=false}catch(_){}
  try{const w=document.getElementById('wun');const d=JSON.parse(document.getElementById('dados').textContent||'{}');w.href=window.wau(String(d.tel||'5551992746683').replace(/\D/g,''),'Olá! Gostaria de saber mais sobre a DUO LAB.');const q=document.getElementById('qwa');if(q)q.href=w.href}catch(_){}
 })();
